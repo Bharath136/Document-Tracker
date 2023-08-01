@@ -1,0 +1,65 @@
+<!-- home.component.html -->
+
+<div class="container">
+  <div class="jumbotron text-center">
+    <h1>Welcome to Document Tracking System</h1>
+    <p class="lead">
+      This is a simple document tracking system that allows you to create, view, edit, and delete documents. You can
+      easily track the status of your documents and manage them efficiently.
+    </p>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-body text-center">
+          <h5 class="card-title">Create New Document</h5>
+          <p class="card-text">
+            Click the button below to create a new document and start tracking it. Provide the necessary details and
+            save the document in the system.
+          </p>
+          <a [routerLink]="['/document/', id]" class="btn btn-primary">Create New Document</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-body text-center">
+          <h5 class="card-title">View All Documents</h5>
+          <p class="card-text">
+            View all the documents you have created and track their status. You can easily edit or delete any document
+            as needed.
+          </p>
+          <a routerLink="/documents" class="btn btn-success">View Documents</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="container my-4 jumbotron p-4">
+    <h2 class="mb-3">About</h2>
+    <p>
+      The Document Tracker is an application designed to help users manage and track their documents efficiently. It
+      allows users to create, edit, and delete documents, and keeps a record of the document's edit history.
+    </p>
+    <p>
+      The application is built using Angular for the frontend and Node.js with MongoDB for the backend. It provides a
+      user-friendly interface for managing documents and is suitable for personal and professional use.
+    </p>
+  </div>
+  <div class="container my-4 jumbotron p-4">
+    <h2 class="mb-3">Contact Us</h2>
+    <p>
+      If you have any questions, feedback, or suggestions regarding the Document Tracker application, feel free to reach
+      out to us.
+    </p>
+    <p>
+      You can contact us at:
+    </p>
+    <ul>
+      <li>Email: contact@documenttracker.com</li>
+      <li>Phone: +1 (123) 456-7890</li>
+    </ul>
+  </div>
+</div>

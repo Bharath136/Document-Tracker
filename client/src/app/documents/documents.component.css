@@ -1,0 +1,6 @@
+.truncate-content {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px; /* You can adjust the max-width as needed */
+  }

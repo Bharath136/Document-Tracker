@@ -1,0 +1,9 @@
+.navbar{
+    min-height: 10vh;
+}
+
+@media screen and (max-width:768px) {
+    .navbar{
+        padding: 10px;
+    }
+}

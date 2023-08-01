@@ -1,0 +1,47 @@
+<div *ngIf="isLoading">
+    <app-loader></app-loader>
+</div>
+<div class="container m-0" *ngIf="!isLoading">
+    <button class="btn btn-secondary" routerLink="/">Go Back</button>
+    <h2 class="mb-3">All Documents</h2>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                <th>Users</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let document of documents">
+                <td>{{ document.docId }}</td>
+                <td>{{ document.title }}</td>
+                <!-- <td [innerHTML]="document.content"></td> -->
+                <td [innerHTML]="truncateContent(document.content, 50)"></td>
+                <td>
+                    <button class="btn btn-primary" (click)="editDocument(document.docId)">Edit</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" *ngIf="userId === document.userId"
+                        (click)="deleteDocument(document.docId)">Delete</button>
+                </td>
+                <p style="font-size: 14px; margin: 0;" *ngIf="userId !== document.userId"><strong>Owner:</strong> {{
+                    document.createdBy}}</p>
+                <p style="font-size: 14px; margin: 0;" *ngIf="userId === document.userId"><strong>Owner:</strong> {{
+                    document.createdBy}}(You)</p>
+                    <div style="height: 50px;overflow-y: auto; width: 180px;">
+                        <td *ngFor="let user of document.editedBy" style="display: flex; flex-direction: column; width: 140px;">
+                            <div>
+                                <p style="font-size: 14px; margin: 0;">{{user.editorName}}</p>
+                                <p style="font-size: 10px; margin: 0;color: rgb(165, 165, 165);"><strong>Updated at</strong>:
+                                    {{user.timestamp | date}}</p>
+                            </div>
+                        </td></div>
+               
+            </tr>
+        </tbody>
+    </table>
+</div>

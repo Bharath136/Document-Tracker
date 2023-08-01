@@ -1,0 +1,13 @@
+.body-container{
+    padding: 20px;
+    display: flex;
+    height: 90vh;
+    overflow: auto;
+    justify-content: center;
+}
+
+@media screen and (max-width:768px) {
+    .body-container{
+        justify-content: flex-start;
+    }
+}

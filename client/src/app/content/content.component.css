@@ -1,0 +1,45 @@
+.form-container {
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .form-container label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .form-container input[type="text"],
+  .form-container textarea,
+  .form-container input[type="datetime-local"] {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+  .form-container input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .form-container .btn {
+    display: inline-block;
+    padding: 10px;
+    
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  .form-container .btn:last-child {
+    margin-right: 0;
+  }
