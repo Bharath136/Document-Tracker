@@ -9,7 +9,8 @@ import { Router } from '@angular/router'; // Fix the import statement here
 })
 export class DocumentsComponent {
   documents: any[] = [];
-  isLoading = false
+  isLoading = false;
+  searchQuery: string = '';
   userId = localStorage.getItem('userId')
 
   truncateContent(content: string, maxLength: number): string {
@@ -20,15 +21,31 @@ export class DocumentsComponent {
     }
   }
 
+  filteredDocuments: any[] = [];
+
   constructor(private http: HttpClient, private router: Router) { // Fix the import statement here
     this.isLoading = true
     this.http.get<any[]>('http://localhost:5100/documents').subscribe((res) => {
       this.documents = res;
+      this.filteredDocuments = res;
       this.isLoading = false
     });
     const token = localStorage.getItem('jwtToken')
     if (!token) {
       this.router.navigate(['/login'])
+    }
+  }
+
+  
+
+  // Existing method to apply the search filter
+  applySearchFilter() {
+    if (this.searchQuery === '') {
+      // If the search query is empty, show all documents
+      this.filteredDocuments = this.documents;
+    } else {
+      // If the search query is not empty, filter the documents based on the title
+      this.filteredDocuments = this.documents.filter(document => document.title.toLowerCase().includes(this.searchQuery.toLowerCase()));
     }
   }
 

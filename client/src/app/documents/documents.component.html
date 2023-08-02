@@ -4,6 +4,18 @@
 <div class="container m-0" *ngIf="!isLoading">
     <button class="btn btn-secondary" routerLink="/">Go Back</button>
     <h2 class="mb-3">All Documents</h2>
+    <div class="mb-3">
+        <label for="searchQuery"><strong>Search by Title:</strong></label>
+        <div class="input-group">
+          <input type="text" class="form-control p-2" [(ngModel)]="searchQuery" placeholder="Search for document..." id="searchQuery" (keyup)="applySearchFilter()">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" (click)="applySearchFilter()">
+              <!-- <i class="fas fa-search"></i> --> Search
+            </button>
+          </div>
+        </div>
+      </div>
+      
     <table class="table table-bordered">
         <thead class="thead-dark">
             <tr>
@@ -16,7 +28,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let document of documents">
+            <tr *ngFor="let document of filteredDocuments">
                 <td>{{ document.docId }}</td>
                 <td>{{ document.title }}</td>
                 <!-- <td [innerHTML]="document.content"></td> -->
